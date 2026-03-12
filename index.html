@@ -1330,6 +1330,89 @@
         font-weight: 700;
       }
 
+      /* ── Recommandations carousel ── */
+      .recommendations-carousel {
+        margin-top: 1.5rem;
+        position: relative;
+      }
+      .rec-carousel-inner {
+        display: flex;
+        align-items: stretch;
+        gap: 0.75rem;
+        position: relative;
+      }
+      .rec-track-wrap {
+        flex: 1;
+        min-width: 0;
+        overflow: hidden;
+        border-radius: var(--radius);
+        background: linear-gradient(135deg, rgba(248,251,255,0.98) 0%, rgba(255,255,255,0.95) 100%);
+        border: 1px solid var(--line);
+        box-shadow: 0 8px 32px rgba(56, 74, 115, 0.08), inset 0 1px 0 rgba(255,255,255,0.9);
+      }
+      .rec-track {
+        display: flex;
+        gap: 1.25rem;
+        padding: 1.25rem 1.5rem;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      .rec-track::-webkit-scrollbar { display: none; }
+      .rec-slide {
+        flex: 0 0 100%;
+        min-width: 0;
+        scroll-snap-align: center;
+        scroll-snap-stop: always;
+      }
+      .rec-arrow {
+        flex-shrink: 0;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        border: 1px solid var(--line);
+        background: var(--glass);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        color: var(--brand);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.2s var(--ease-out-expo), box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease;
+        align-self: center;
+      }
+      .rec-arrow:hover {
+        background: rgba(124, 156, 245, 0.15);
+        box-shadow: 0 8px 24px rgba(124, 156, 245, 0.2);
+        color: #5a7de8;
+      }
+      .rec-arrow:active { transform: scale(0.96); }
+      .rec-dots {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-top: 1.25rem;
+        flex-wrap: wrap;
+      }
+      .rec-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        border: none;
+        background: #c4d5fc;
+        cursor: pointer;
+        padding: 0;
+        transition: transform 0.2s ease, background 0.25s ease;
+      }
+      .rec-dot:hover { background: var(--brand-soft); }
+      .rec-dot.is-active {
+        background: var(--brand);
+        transform: scale(1.2);
+      }
+
       .footer {
         border-top: 1px solid #dce5fb;
         padding: 1.2rem 0 2rem;
@@ -1464,11 +1547,14 @@
         .profile-actions .btn { width: 100%; justify-content: center; min-height: 48px; }
 
         .skills-grid,
-        .recommendations-grid,
         .project-list,
         .project-form {
           grid-template-columns: 1fr;
         }
+
+        .rec-carousel-inner { gap: 0.5rem; }
+        .rec-arrow { width: 42px; height: 42px; }
+        .rec-track { padding: 1rem 1rem; }
 
         .footer {
           flex-direction: column;
@@ -2388,33 +2474,44 @@
           <h2>Ce qu’on dit de mon travail</h2>
         </div>
 
-        <div class="recommendations-grid">
-          <article class="quote-card reveal tilt-3d" data-tilt-max="5">
-            <h3>Anne-Elisabeth BUREAU</h3>
-            <p class="quote-role">Directrice de la communication interne et externe - Ville de ROMANS</p>
-            <p class="quote-link">Lien avec moi: manager direct(e)</p>
-            <p>
-              “Manon a effectué son stage au sein de la direction de la communication de la Ville de Romans. Elle a fait preuve d'une grande adaptabilité et a contribué à de nombreux projets, notamment sur le community management et la création de vidéos. Son savoir-être et son professionnalisme ont été également très appréciés par l'équipe.”
-            </p>
-          </article>
-
-          <article class="quote-card reveal tilt-3d" data-tilt-max="5">
-            <h3>Morgane Blanc</h3>
-            <p class="quote-role">Attaché temporaire d'enseignement et de recherche</p>
-            <p class="quote-link">Lien avec moi: professeure</p>
-            <p>
-              “J’ai eu l’occasion d’accompagner Manon dans son parcours académique, et j’ai pu constater son sérieux et sa conscience professionnelle. Elle s’investit avec rigueur dans son travail et fait preuve d’une grande implication. Je la recommande pour son sérieux et sa capacité à mener à bien ses missions.”
-            </p>
-          </article>
-
-          <article class="quote-card reveal tilt-3d" data-tilt-max="5">
-            <h3>DEBOST Jean-Pierre</h3>
-            <p class="quote-role">Dirigeant chez PUB PROS7 et Formateur Indépendant</p>
-            <p class="quote-link">Lien avec moi: professeur</p>
-            <p>
-              “J’ai eu l’occasion d’avoir Manon en formation, c’est une personne dynamique, engagée avec de bonnes capacités en création et en communication. N’hésitez pas à faire appel à ses services.”
-            </p>
-          </article>
+        <div class="recommendations-carousel reveal">
+          <div class="rec-carousel-inner">
+            <button type="button" class="rec-arrow rec-arrow-prev" id="rec-prev" aria-label="Recommandation précédente">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18L9 12L15 6"/></svg>
+            </button>
+            <div class="rec-track-wrap">
+              <div class="rec-track" id="rec-track" role="region" aria-label="Recommandations">
+                <article class="quote-card rec-slide tilt-3d" data-tilt-max="5">
+                  <h3>Anne-Elisabeth BUREAU</h3>
+                  <p class="quote-role">Directrice de la communication interne et externe - Ville de ROMANS</p>
+                  <p class="quote-link">Lien avec moi: manager direct(e)</p>
+                  <p>“Manon a effectué son stage au sein de la direction de la communication de la Ville de Romans. Elle a fait preuve d'une grande adaptabilité et a contribué à de nombreux projets, notamment sur le community management et la création de vidéos. Son savoir-être et son professionnalisme ont été également très appréciés par l'équipe.”</p>
+                </article>
+                <article class="quote-card rec-slide tilt-3d" data-tilt-max="5">
+                  <h3>Pascale Vernès</h3>
+                  <p class="quote-role">Responsable des relations presse - Ville de Romans</p>
+                  <p class="quote-link">Lien avec moi: manager direct(e)</p>
+                  <p>“Nous avons eu très grand plaisir à t'accueillir. Plus qu'une simple stagiaire, tu as été un véritable membre à part entière de notre équipe. Je suis ravie de voir que ton stage chez nous t'a permis de développer tes compétences. Pour ma part, j'ai beaucoup apprécié ton savoir-être et ton travail. Bonne continuation.”</p>
+                </article>
+                <article class="quote-card rec-slide tilt-3d" data-tilt-max="5">
+                  <h3>Morgane Blanc</h3>
+                  <p class="quote-role">Attaché temporaire d'enseignement et de recherche</p>
+                  <p class="quote-link">Lien avec moi: professeure</p>
+                  <p>“J’ai eu l’occasion d’accompagner Manon dans son parcours académique, et j’ai pu constater son sérieux et sa conscience professionnelle. Elle s’investit avec rigueur dans son travail et fait preuve d’une grande implication. Je la recommande pour son sérieux et sa capacité à mener à bien ses missions.”</p>
+                </article>
+                <article class="quote-card rec-slide tilt-3d" data-tilt-max="5">
+                  <h3>DEBOST Jean-Pierre</h3>
+                  <p class="quote-role">Dirigeant chez PUB PROS7 et Formateur Indépendant</p>
+                  <p class="quote-link">Lien avec moi: professeur</p>
+                  <p>“J’ai eu l’occasion d’avoir Manon en formation, c’est une personne dynamique, engagée avec de bonnes capacités en création et en communication. N’hésitez pas à faire appel à ses services.”</p>
+                </article>
+              </div>
+            </div>
+            <button type="button" class="rec-arrow rec-arrow-next" id="rec-next" aria-label="Recommandation suivante">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6L15 12L9 18"/></svg>
+            </button>
+          </div>
+          <div class="rec-dots" id="rec-dots" role="tablist" aria-label="Choisir une recommandation"></div>
         </div>
       </section>
     </main>
@@ -2857,6 +2954,57 @@
       renderProjects();
       observeReveals();
       setTimeout(updateArrows, 120);
+
+      // Recommandations carousel
+      (function() {
+        const track = document.getElementById("rec-track");
+        const dotsEl = document.getElementById("rec-dots");
+        const prevBtn = document.getElementById("rec-prev");
+        const nextBtn = document.getElementById("rec-next");
+        if (!track || !dotsEl) return;
+        const slides = track.querySelectorAll(".rec-slide");
+        const total = slides.length;
+        if (total === 0) return;
+
+        function getIndex() {
+          const scroll = track.scrollLeft;
+          let best = 0, bestDist = Infinity;
+          slides.forEach((s, i) => {
+            const mid = s.offsetLeft + s.offsetWidth / 2;
+            const d = Math.abs(mid - scroll - track.clientWidth / 2);
+            if (d < bestDist) { bestDist = d; best = i; }
+          });
+          return best;
+        }
+        function goTo(i) {
+          const idx = Math.max(0, Math.min(i, total - 1));
+          const slide = slides[idx];
+          if (slide) track.scrollTo({ left: slide.offsetLeft, behavior: "smooth" });
+        }
+        function buildDots() {
+          dotsEl.innerHTML = "";
+          for (let k = 0; k < total; k++) {
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "rec-dot";
+            btn.setAttribute("aria-label", "Recommandation " + (k + 1));
+            btn.addEventListener("click", () => goTo(k));
+            dotsEl.appendChild(btn);
+          }
+        }
+        function updateDots() {
+          const i = getIndex();
+          dotsEl.querySelectorAll(".rec-dot").forEach((btn, k) => {
+            btn.classList.toggle("is-active", k === i);
+            btn.setAttribute("aria-selected", k === i ? "true" : "false");
+          });
+        }
+        buildDots();
+        track.addEventListener("scroll", () => updateDots());
+        if (prevBtn) prevBtn.addEventListener("click", () => goTo(getIndex() - 1));
+        if (nextBtn) nextBtn.addEventListener("click", () => goTo(getIndex() + 1));
+        updateDots();
+      })();
 
       // Nav mobile: hamburger toggle
       (function() {
