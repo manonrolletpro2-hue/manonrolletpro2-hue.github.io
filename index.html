@@ -2256,26 +2256,26 @@
       <div class="construction-popup">
         <h2 id="constructionTitle">Site en construction</h2>
         <p>Ce portfolio est encore en cours de réalisation. Vous pouvez toutefois le parcourir et consulter son contenu.</p>
-        <button type="button" class="btn-construction" id="constructionClose">Parcourir le site</button>
+        <button type="button" class="btn-construction" id="constructionClose" data-umami-event="Clic parcourir site">Parcourir le site</button>
       </div>
     </div>
 
     <header class="hero" id="top">
       <nav class="nav container" id="mainNav">
-        <a class="brand" href="#top">MR</a>
-        <button type="button" class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false">
+        <a class="brand" href="#top" data-umami-event="Nav logo top">MR</a>
+        <button type="button" class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" data-umami-event="Nav menu mobile toggle">
           <span class="nav-toggle-bar"></span>
           <span class="nav-toggle-bar"></span>
           <span class="nav-toggle-bar"></span>
         </button>
         <div class="nav-links" id="navLinks">
-          <a href="#a-propos">À propos</a>
-          <a href="#experiences">Expériences</a>
-          <a href="#skills">Compétences</a>
-          <a href="#certifications">Certifications</a>
-          <a href="#projects">Projets</a>
-          <a href="#recommendations">Recommandations</a>
-          <a href="#contactez-moi">Contact</a>
+          <a href="#a-propos" data-umami-event="Nav a propos">À propos</a>
+          <a href="#experiences" data-umami-event="Nav experiences">Expériences</a>
+          <a href="#skills" data-umami-event="Nav competences">Compétences</a>
+          <a href="#certifications" data-umami-event="Nav certifications">Certifications</a>
+          <a href="#projects" data-umami-event="Nav projets">Projets</a>
+          <a href="#recommendations" data-umami-event="Nav recommandations">Recommandations</a>
+          <a href="#contactez-moi" data-umami-event="Nav contact">Contact</a>
         </div>
       </nav>
 
@@ -2302,8 +2302,8 @@
             <img src="https://raw.githubusercontent.com/manonrolletpro2-hue/Portfolio/542f941a9a60030e8496f557aca37c09d8edd822/Capture%20d%E2%80%99e%CC%81cran%202026-03-03%20a%CC%80%2013.24.34.png" alt="Photo de ROLLET Manon" class="profile-photo" />
           </div>
           <div class="profile-actions">
-            <a class="btn btn-primary" href="https://www.linkedin.com/in/manon-rollet-9a5778279/" target="_blank" rel="noopener noreferrer">Voir mon LinkedIn</a>
-            <a class="btn btn-ghost" href="cv.pdf" download="Rollet_Manon_CV.pdf">Télécharger mon CV</a>
+            <a class="btn btn-primary" data-umami-event="Clic linkedin profile" href="https://www.linkedin.com/in/manon-rollet-9a5778279/" target="_blank" rel="noopener noreferrer">Voir mon LinkedIn</a>
+            <a class="btn btn-ghost" data-umami-event="Clic download cv" href="cv.pdf" download="Rollet_Manon_CV.pdf">Télécharger mon CV</a>
           </div>
         </aside>
       </div>
@@ -2543,7 +2543,7 @@
           </div>
 
           <div class="projects-carousel">
-            <button id="carousel-prev" class="carousel-arrow left" aria-label="Précédent">
+            <button id="carousel-prev" class="carousel-arrow left" aria-label="Précédent" data-umami-event="Carousel projets precedent">
               
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -2552,7 +2552,7 @@
 
             <div class="project-list" id="project-list" tabindex="0" role="list" aria-label="Réalisations"></div>
 
-            <button id="carousel-next" class="carousel-arrow right" aria-label="Suivant">
+            <button id="carousel-next" class="carousel-arrow right" aria-label="Suivant" data-umami-event="Carousel projets suivant">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
@@ -2569,7 +2569,7 @@
 
         <div class="recommendations-carousel reveal">
           <div class="rec-carousel-inner">
-            <button type="button" class="rec-arrow rec-arrow-prev" id="rec-prev" aria-label="Recommandation précédente">
+            <button type="button" class="rec-arrow rec-arrow-prev" id="rec-prev" aria-label="Recommandation précédente" data-umami-event="Carousel recommandations precedent">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18L9 12L15 6"/></svg>
             </button>
             <div class="rec-track-wrap">
@@ -2606,7 +2606,7 @@
                 </article>
               </div>
             </div>
-            <button type="button" class="rec-arrow rec-arrow-next" id="rec-next" aria-label="Recommandation suivante">
+            <button type="button" class="rec-arrow rec-arrow-next" id="rec-next" aria-label="Recommandation suivante" data-umami-event="Carousel recommandations suivant">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6L15 12L9 18"/></svg>
             </button>
           </div>
@@ -2622,7 +2622,7 @@
             <h2 class="cta-unified-title">Vous cherchez une alternante en gestion de projet&nbsp;?</h2>
             <p class="cta-unified-sub">Je suis actuellement à la recherche d’une alternance en gestion de projet. Parlons de vos besoins et voyons comment je peux rejoindre votre équipe.</p>
             <div class="cta-unified-actions">
-            <a href="mailto:manon.rollet.pro2@gmail.com" class="contact-row email" aria-label="Envoyer un email">
+            <a href="mailto:manon.rollet.pro2@gmail.com" class="contact-row email" aria-label="Envoyer un email" data-umami-event="Contact email row">
               <div class="contact-row-icon" aria-hidden="true">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
               </div>
@@ -2631,7 +2631,7 @@
                 <div class="contact-row-value" id="contactEmail">manon.rollet.pro2@gmail.com</div>
               </div>
               <div class="contact-copy-wrap">
-                <button type="button" class="contact-copy-btn" id="copyEmailBtn" aria-label="Copier l’email">
+                <button type="button" class="contact-copy-btn" id="copyEmailBtn" aria-label="Copier l’email" data-umami-event="Contact copy email">
                   <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
                   <span class="label">Copier</span>
                 </button>
@@ -2647,22 +2647,22 @@
                 <div class="contact-row-value">07 83 59 29 42</div>
               </div>
               <div class="contact-phone-actions">
-                <button type="button" class="contact-phone-toggle" id="phoneToggle" aria-label="Choisir une action" aria-expanded="false" aria-haspopup="true">
+                <button type="button" class="contact-phone-toggle" id="phoneToggle" aria-label="Choisir une action" aria-expanded="false" aria-haspopup="true" data-umami-event="Contact phone menu open">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
                 </button>
                 <div class="contact-phone-dropdown" id="phoneDropdown" role="menu" aria-hidden="true">
-                  <a href="tel:+33783592942" role="menuitem" class="contact-phone-option">
+                  <a href="tel:+33783592942" role="menuitem" class="contact-phone-option" data-umami-event="Contact call phone">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81 2.16 5.76 8.13 11.69 13.89 13.89.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                     Appeler
                   </a>
-                  <a href="sms:+33783592942" role="menuitem" class="contact-phone-option">
+                  <a href="sms:+33783592942" role="menuitem" class="contact-phone-option" data-umami-event="Contact send sms">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
                     Envoyer un message
                   </a>
                 </div>
               </div>
             </div>
-              <a href="mailto:manon.rollet.pro2@gmail.com" class="cta-unified-btn">
+              <a href="mailto:manon.rollet.pro2@gmail.com" class="cta-unified-btn" data-umami-event="Contact cta envoyer message">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                 Envoyer un message
               </a>
@@ -2673,7 +2673,7 @@
 
     <footer class="footer container">
       <p>© 2026 ROLLET Manon</p>
-      <a href="#top">Retour en haut</a>
+      <a href="#top" data-umami-event="Footer retour en haut">Retour en haut</a>
     </footer>
 
     <script>
@@ -2881,6 +2881,16 @@
       let projects = loadProjects();
       let revealObserver;
 
+      function applyUmamiEvents(scope) {
+        const root = scope || document;
+        root.querySelectorAll("a, button, [role=button]").forEach((el) => {
+          if (el.hasAttribute("data-umami-event")) return;
+          const txt = (el.getAttribute("aria-label") || el.textContent || "").trim().replace(/\s+/g, " ").slice(0, 60);
+          if (!txt) return;
+          el.setAttribute("data-umami-event", "Clic " + txt.toLowerCase());
+        });
+      }
+
       function loadProjects() {
         const saved = localStorage.getItem(STORAGE_KEY);
         if (!saved) return structuredClone(defaultProjects);
@@ -2956,9 +2966,9 @@
                 </div>
                 <h3>${safeTitle}</h3>
                 <p>${safeSummary}</p>
-                ${safeLink ? `<a class="project-link" href="${safeLink}" target="_blank" rel="noopener noreferrer">Voir le projet</a>` : ""}
+                ${safeLink ? `<a class="project-link" href="${safeLink}" target="_blank" rel="noopener noreferrer" data-umami-event="Projet voir projet">Voir le projet</a>` : ""}
                 ${hasExpandContent ? `
-                <div class="toggle-chip" aria-label="Voir le détail">
+                <div class="toggle-chip" aria-label="Voir le détail" data-umami-event="Projet voir detail">
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
                        stroke="currentColor" stroke-width="2.8" stroke-linecap="round">
                     <line x1="12" y1="5" x2="12" y2="19"/>
@@ -3006,6 +3016,7 @@
         });
 
         observeReveals();
+        applyUmamiEvents(projectList);
       }
 
       function observeReveals() {
@@ -3053,6 +3064,7 @@
       });
 
       // initial render and arrow state
+      applyUmamiEvents(document);
       renderProjects();
       observeReveals();
       setTimeout(updateArrows, 120);
@@ -3090,6 +3102,7 @@
             btn.type = "button";
             btn.className = "rec-dot";
             btn.setAttribute("aria-label", "Recommandation " + (k + 1));
+            btn.setAttribute("data-umami-event", "Carousel recommandations dot " + (k + 1));
             btn.addEventListener("click", () => goTo(k));
             dotsEl.appendChild(btn);
           }
